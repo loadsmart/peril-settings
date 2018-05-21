@@ -16,6 +16,7 @@ export default async (status: Status) => {
   const owner = status.repository.owner.login
   const repo = status.repository.name
   const allGreen = await api.repos.getCombinedStatusForRef({ owner, repo, ref: status.commit.sha })
+  console.log(allGreen.data)
   if (allGreen.data.state !== "success") {
     return console.error("Not all statuses are green")
   }
