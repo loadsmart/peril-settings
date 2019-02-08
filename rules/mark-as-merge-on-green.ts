@@ -28,7 +28,7 @@ export const markAsMergeOnGreen = async (issueComment: IssueComment) => {
   }
 
   // Don't do any work unless we have to
-  const keywords = ["merge on green", "merge on ci green"]
+  const keywords = ["merge on green", "merge on ci green", "pode dale", "pode dale on green"]
   const match = keywords.find(k => comment.body.toLowerCase().includes(k))
   if (!match) {
     console.error("Did not find any of the phrases in the comment: ", comment.body.toLocaleLowerCase())
