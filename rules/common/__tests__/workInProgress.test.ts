@@ -2,7 +2,7 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { workInProgress } from "../rules/all-prs"
+import { workInProgress } from "../workInProgress"
 
 beforeEach(() => {
   dm.warn = jest.fn()

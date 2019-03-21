@@ -2,7 +2,7 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { viewFilesWereChanged } from "../rules/ios-prs"
+import { viewFilesWereChanged } from "../viewFilesWereChanged"
 
 beforeEach(() => {
   dm.danger = {}

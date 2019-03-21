@@ -2,7 +2,7 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { pipfileLock } from "../rules/python-prs"
+import { pipfileLock } from "../pipfileLock"
 
 beforeEach(() => {
   dm.danger = {}

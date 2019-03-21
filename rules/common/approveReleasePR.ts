@@ -1,4 +1,4 @@
-import { schedule, danger, message } from "danger"
+import { danger } from "danger"
 
 export const approveReleasePR = async () => {
   const pr = danger.github.pr

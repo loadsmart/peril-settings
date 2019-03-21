@@ -2,14 +2,14 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { importStar } from "../rules/python-prs"
+import { importStar } from "../importStar"
 
 beforeEach(() => {
   dm.danger = {}
   dm.fail = jest.fn()
 })
 
-it("fails when import star is added", () => {
+it("fails when import star is added", async () => {
   const modifiedFile = "some/file.py"
 
   dm.danger.git = {
@@ -21,12 +21,11 @@ it("fails when import star is added", () => {
     },
   }
 
-  return importStar().then(() => {
-    expect(dm.fail).toHaveBeenCalledWith("Please avoid `import *` - explicit is better than implicit!")
-  })
+  await importStar()
+  expect(dm.fail).toHaveBeenCalledWith("Please avoid `import *` - explicit is better than implicit!")
 })
 
-it("does not fail when import star is added only to non-python files", () => {
+it("does not fail when import star is added only to non-python files", async () => {
   const modifiedFile = "some/file.js"
 
   dm.danger.git = {
@@ -38,12 +37,11 @@ it("does not fail when import star is added only to non-python files", () => {
     },
   }
 
-  return importStar().then(() => {
-    expect(dm.fail).not.toHaveBeenCalled()
-  })
+  await importStar()
+  expect(dm.fail).not.toHaveBeenCalled()
 })
 
-it("does not fail when import star is only present in renamed files", () => {
+it("does not fail when import star is only present in renamed files", async () => {
   const modifiedFile = "some/file.py => some/new_file.py"
 
   dm.danger.git = {
@@ -55,12 +53,11 @@ it("does not fail when import star is only present in renamed files", () => {
     },
   }
 
-  return importStar().then(() => {
-    expect(dm.fail).not.toHaveBeenCalled()
-  })
+  await importStar()
+  expect(dm.fail).not.toHaveBeenCalled()
 })
 
-it("does not fail when there is no import star in python files", () => {
+it("does not fail when there is no import star in python files", async () => {
   const modifiedFile = "some/file.py"
 
   dm.danger.git = {
@@ -72,7 +69,6 @@ it("does not fail when there is no import star in python files", () => {
     },
   }
 
-  return importStar().then(() => {
-    expect(dm.fail).not.toHaveBeenCalled()
-  })
+  await importStar()
+  expect(dm.fail).not.toHaveBeenCalled()
 })

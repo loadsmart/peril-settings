@@ -2,14 +2,14 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { changelog } from "../rules/all-prs"
+import { changelog } from "../changelog"
 
 beforeEach(() => {
   dm.danger = {}
   dm.warn = jest.fn()
 })
 
-it("warns when code was changed and there is no changelog entry", () => {
+it("warns when code was changed and there is no changelog entry", async () => {
   dm.danger.github = {
     api: {
       repos: {
@@ -25,12 +25,11 @@ it("warns when code was changed and there is no changelog entry", () => {
     modified_files: ["src/index.html"],
     created_files: [],
   }
-  return changelog().then(() => {
-    expect(dm.warn).toHaveBeenCalledWith("It looks like code was changed without adding anything to the Changelog.")
-  })
+  await changelog()
+  expect(dm.warn).toHaveBeenCalledWith("It looks like code was changed without adding anything to the Changelog.")
 })
 
-it("does not warn when repo has no changelog file", () => {
+it("does not warn when repo has no changelog file", async () => {
   dm.danger.github = {
     api: {
       repos: {
@@ -46,12 +45,11 @@ it("does not warn when repo has no changelog file", () => {
     modified_files: ["src/index.html"],
     created_files: [],
   }
-  return changelog().then(() => {
-    expect(dm.warn).not.toHaveBeenCalled()
-  })
+  await changelog()
+  expect(dm.warn).not.toHaveBeenCalled()
 })
 
-it("does not warn when no production code was changed", () => {
+it("does not warn when no production code was changed", async () => {
   dm.danger.github = {
     api: {
       repos: {
@@ -67,12 +65,11 @@ it("does not warn when no production code was changed", () => {
     modified_files: ["test/index.html", "CHANGELOG.md"],
     created_files: [],
   }
-  return changelog().then(() => {
-    expect(dm.warn).not.toHaveBeenCalled()
-  })
+  await changelog()
+  expect(dm.warn).not.toHaveBeenCalled()
 })
 
-it("does not warn when there is a changelog entry", () => {
+it("does not warn when there is a changelog entry", async () => {
   dm.danger.github = {
     api: {
       repos: {
@@ -88,12 +85,11 @@ it("does not warn when there is a changelog entry", () => {
     modified_files: ["src/index.html", "CHANGELOG.md"],
     created_files: [],
   }
-  return changelog().then(() => {
-    expect(dm.warn).not.toHaveBeenCalled()
-  })
+  await changelog()
+  expect(dm.warn).not.toHaveBeenCalled()
 })
 
-it("does not warn when PR is already closed", () => {
+it("does not warn when PR is already closed", async () => {
   dm.danger.github = {
     api: {
       repos: {
@@ -109,7 +105,6 @@ it("does not warn when PR is already closed", () => {
     modified_files: ["src/index.html"],
     created_files: [],
   }
-  return changelog().then(() => {
-    expect(dm.warn).not.toHaveBeenCalled()
-  })
+  await changelog()
+  expect(dm.warn).not.toHaveBeenCalled()
 })
