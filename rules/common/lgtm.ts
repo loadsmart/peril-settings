@@ -15,8 +15,7 @@ const lgtm = async (issueComment: IssueComment) => {
   }
 
   // Don't do any work unless we have to
-  const keywords = ["lgtm"]
-  const match = keywords.find(k => comment.body.toLowerCase().includes(k))
+  const match = comment.body.toLowerCase().includes("lgtm")
   if (!match) {
     console.error("Did not find any of the phrases in the comment: ", comment.body.toLocaleLowerCase())
     return
