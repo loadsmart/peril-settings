@@ -9,5 +9,10 @@
     "issue_comment.created": "rules/common/markAsMergeOnGreen.ts",
     "status.success": "rules/common/mergeOnGreen.ts",
     "pull_request_review.submitted": "rules/common/mergeOnGreen.ts"
+  },
+  "repos": {
+    "loadsmart/building-blocks": {
+      "pull_request.opened": ["rules/common/needsDescription.ts"]
+    }
   }
 }
