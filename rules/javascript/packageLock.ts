@@ -14,7 +14,3 @@ export const packageLock = () => {
     warn("package.json was modified and package-lock.json was not. Please update your JS dependencies")
   }
 }
-
-export default async () => {
-  packageLock()
-}

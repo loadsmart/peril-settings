@@ -2,14 +2,14 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { pdb } from "../rules/python-prs"
+import { pdb } from "../pdb"
 
 beforeEach(() => {
   dm.danger = {}
   dm.fail = jest.fn()
 })
 
-it("fails when pdb is left in file", () => {
+it("fails when pdb is left in file", async () => {
   const modifiedFile = "some/file.py"
 
   dm.danger.git = {
@@ -26,12 +26,11 @@ it("fails when pdb is left in file", () => {
     },
   }
 
-  return pdb().then(() => {
-    expect(dm.fail).toHaveBeenCalledWith("(i)pdb left in the code")
-  })
+  await pdb()
+  expect(dm.fail).toHaveBeenCalledWith("(i)pdb left in the code")
 })
 
-it("fails when ipdb is left in file", () => {
+it("fails when ipdb is left in file", async () => {
   const modifiedFile = "some/file.py"
 
   dm.danger.git = {
@@ -48,12 +47,11 @@ it("fails when ipdb is left in file", () => {
     },
   }
 
-  return pdb().then(() => {
-    expect(dm.fail).toHaveBeenCalledWith("(i)pdb left in the code")
-  })
+  await pdb()
+  expect(dm.fail).toHaveBeenCalledWith("(i)pdb left in the code")
 })
 
-it("does not fail when neither pdb nor ipdb is left in file", () => {
+it("does not fail when neither pdb nor ipdb is left in file", async () => {
   const modifiedFile = "some/file.py"
 
   dm.danger.git = {
@@ -70,7 +68,6 @@ it("does not fail when neither pdb nor ipdb is left in file", () => {
     },
   }
 
-  return pdb().then(() => {
-    expect(dm.fail).not.toHaveBeenCalled()
-  })
+  await pdb()
+  expect(dm.fail).not.toHaveBeenCalled()
 })

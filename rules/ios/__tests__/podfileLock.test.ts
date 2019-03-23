@@ -2,7 +2,7 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { podfileLock } from "../rules/ios-prs"
+import { podfileLock } from "../podfileLock"
 
 beforeEach(() => {
   dm.danger = {}
