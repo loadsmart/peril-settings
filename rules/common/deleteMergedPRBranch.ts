@@ -1,7 +1,7 @@
 import { danger } from "danger"
 
 // Delete branch of a merged PR
-export const deleteMergedPRBranch = async () => {
+const deleteMergedPRBranch = async () => {
   const owner = danger.github.thisPR.owner
   const repo = danger.github.thisPR.repo
   const branch = danger.github.pr.head.ref

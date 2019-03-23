@@ -1,7 +1,7 @@
 import { danger, fail } from "danger"
 
 // Don't let (i)pdb get into master
-export const pdb = async () => {
+const pdb = async () => {
   const files = [...danger.git.modified_files, ...danger.git.created_files]
   const regexp = RegExp(`import i?pdb`)
   async function checkFiles() {
@@ -15,3 +15,5 @@ export const pdb = async () => {
   }
   await checkFiles()
 }
+
+export default pdb

@@ -1,7 +1,7 @@
 import { danger, warn } from "danger"
 
 // Don't let Pipfile.lock outdated
-export const pipfileLock = () => {
+const pipfileLock = () => {
   const files = [...danger.git.modified_files, ...danger.git.created_files]
   const hasPipfile = files.some(file => {
     return file == "Pipfile"
@@ -14,3 +14,5 @@ export const pipfileLock = () => {
     warn("Pipfile was modified and Pipfile.lock was not. Please update your Python dependencies")
   }
 }
+
+export default pipfileLock

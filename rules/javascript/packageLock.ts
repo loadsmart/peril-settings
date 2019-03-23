@@ -1,7 +1,7 @@
 import { danger, warn } from "danger"
 
 // Don't let package-lock.json outdated
-export const packageLock = () => {
+const packageLock = () => {
   const files = [...danger.git.modified_files, ...danger.git.created_files]
   const hasPackageJson = files.some(file => {
     return file == "package.json"
@@ -14,3 +14,5 @@ export const packageLock = () => {
     warn("package.json was modified and package-lock.json was not. Please update your JS dependencies")
   }
 }
+
+export default packageLock

@@ -1,7 +1,7 @@
 import { danger, warn } from "danger"
 
 // Source code changes require test updates
-export const testsUpdated = () => {
+const testsUpdated = () => {
   const files = [...danger.git.modified_files, ...danger.git.created_files]
   const hasCodeChanges = files.find(file => !file.match(/(test|spec)/i))
   const hasTestChanges = files.find(file => !!file.match(/(test|spec)/i))
@@ -10,3 +10,5 @@ export const testsUpdated = () => {
     warn("Tests were not updated")
   }
 }
+
+export default testsUpdated

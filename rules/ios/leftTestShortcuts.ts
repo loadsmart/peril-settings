@@ -1,7 +1,7 @@
 import { danger, fail, warn } from "danger"
 
 // Don't let testing shortcuts get into master by accident
-export const leftTestShortcuts = async () => {
+const leftTestShortcuts = async () => {
   const testLabels = ["describe", "context", "it"]
   const testShortcuts = [...testLabels.map(label => `f${label}`), ...testLabels.map(label => `x${label}`)]
 
@@ -25,3 +25,5 @@ export const leftTestShortcuts = async () => {
 
   await checkFiles()
 }
+
+export default leftTestShortcuts

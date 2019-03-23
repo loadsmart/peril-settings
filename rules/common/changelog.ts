@@ -1,7 +1,7 @@
 import { danger, warn } from "danger"
 
 // PRs need a changelog entry if changes are not #trivial
-export const changelog = async () => {
+const changelog = async () => {
   const pr = danger.github.pr
   const changelogs = ["CHANGELOG.md", "changelog.md", "CHANGELOG.yml"]
   const isOpen = pr.state === "open"
@@ -22,3 +22,5 @@ export const changelog = async () => {
     }
   }
 }
+
+export default changelog

@@ -2,7 +2,7 @@ import { danger } from "danger"
 import { Status } from "github-webhook-event-types"
 import { LabelLabel } from "github-webhook-event-types/source/Label"
 
-export const mergeOnGreen = async (status: Status) => {
+const mergeOnGreen = async (status: Status) => {
   const api = danger.github.api
 
   if (status.state !== "success") {

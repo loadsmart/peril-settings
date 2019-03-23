@@ -1,7 +1,7 @@
 import { danger, fail } from "danger"
 
 // Check if diff contains 'import *'
-export const importStar = async () => {
+const importStar = async () => {
   const files = [...danger.git.modified_files, ...danger.git.created_files]
   const pyFiles = files
     .filter(file => {
@@ -23,3 +23,5 @@ export const importStar = async () => {
 
   await checkFiles()
 }
+
+export default importStar
