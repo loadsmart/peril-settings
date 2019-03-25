@@ -12,7 +12,7 @@
   },
   "repos": {
     "loadsmart/building-blocks": {
-      "pull_request.reopened": [
+      "pull_request.opened": [
         "loadsmart/peril-settings@rules/common/changelog.ts",
         "loadsmart/peril-settings@rules/common/needsDescription.ts",
         "loadsmart/peril-settings@rules/common/testsUpdated.ts"
