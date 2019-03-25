@@ -12,7 +12,7 @@
   },
   "repos": {
     "loadsmart/building-blocks": {
-      "pull_request.opened": [
+      "pull_request.reopened": [
         "rules/common/changelog.ts",
         "rules/common/needsDescription.ts",
         "rules/common/testsUpdated.ts"
