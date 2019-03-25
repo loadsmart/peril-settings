@@ -13,11 +13,11 @@
   "repos": {
     "loadsmart/building-blocks": {
       "pull_request.reopened": [
-        "rules/common/changelog.ts",
-        "rules/common/needsDescription.ts",
-        "rules/common/testsUpdated.ts"
+        "loadsmart/peril-settings@rules/common/changelog.ts",
+        "loadsmart/peril-settings@rules/common/needsDescription.ts",
+        "loadsmart/peril-settings@rules/common/testsUpdated.ts"
       ],
-      "issue_comment.created": ["rules/common/lgtm.ts"]
+      "issue_comment.created": ["loadsmart/peril-settings@rules/common/lgtm.ts"]
     }
   }
 }
