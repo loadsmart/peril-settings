@@ -2,7 +2,7 @@ jest.mock("danger", () => jest.fn())
 import * as danger from "danger"
 const dm = danger as any
 
-import { mergeCommits } from "../mergeCommits"
+import mergeCommits from "../mergeCommits"
 
 beforeEach(() => {
   dm.fail = jest.fn()

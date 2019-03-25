@@ -17,7 +17,7 @@ const lgtm = async (issueComment: IssueComment) => {
   // Don't do any work unless we have to
   const matches = comment.body.toLowerCase().includes("lgtm")
   if (!matches) {
-    console.error("Did not find lgtm in the comment: ", comment.body.toLowerCase())
+    console.error("Did not find lgtm in the comment:", comment.body.toLowerCase())
     return
   }
 
