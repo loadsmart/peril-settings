@@ -11,7 +11,7 @@
     "pull_request_review.submitted": "rules/common/mergeOnGreen.ts"
   },
   "repos": {
-    "loadsmart/building-blocks": {
+    "loadsmart/blocks": {
       "pull_request.opened": [
         "loadsmart/peril-settings@rules/common/changelog.ts",
         "loadsmart/peril-settings@rules/common/needsDescription.ts",
