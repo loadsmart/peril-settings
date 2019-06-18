@@ -3,7 +3,7 @@ import { danger } from "danger"
 export const approveReleasePR = async () => {
   const pr = danger.github.pr
 
-  if (pr.title.includes("[Release]")) {
+  if (pr.title.toLocaleLowerCase().includes("[release]")) {
     const api = danger.github.api
     const owner = pr.head.repo.owner.login
     const repo = pr.head.repo.name
