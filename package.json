@@ -33,11 +33,23 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(.test)\\.(ts|tsx)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   },
   "lint-staged": {
-    "*.@(ts|tsx)": ["yarn prettier --write", "git add"],
-    "*.json": ["yarn prettier --write", "git add"]
+    "*.@(ts|tsx)": [
+      "yarn prettier --write",
+      "git add"
+    ],
+    "*.json": [
+      "yarn prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "github-webhook-event-types": "^1.1.0",
