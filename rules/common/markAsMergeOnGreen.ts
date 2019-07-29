@@ -23,7 +23,7 @@ const markAsMergeOnGreen = async (issueComment: IssueComment) => {
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
-    console.info("Not a Pull Request")
+    console.info("Not a Pull Request. Ignoring 'Mark as merge-on-green' rule.")
     return
   }
 
