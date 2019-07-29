@@ -16,7 +16,7 @@ const mergeOnGreen = async (status: Status) => {
   const repo = status.repository.name
   const allGreen = await api.repos.getCombinedStatusForRef({ owner, repo, ref: status.commit.sha })
   if (allGreen.data.state !== "success") {
-    return console.info("Not all statuses are green")
+    return console.info("Not all statuses are green for merging.")
   }
 
   // See https://github.com/maintainers/early-access-feedback/issues/114 for more context on getting a PR from a SHA
