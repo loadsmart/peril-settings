@@ -10,14 +10,14 @@ const lgtm = async (issueComment: IssueComment) => {
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
-    console.error("Not a Pull Request")
+    console.info("Not a Pull Request")
     return
   }
 
   // Don't do any work unless we have to
   const matches = comment.body.toLowerCase().includes("lgtm")
   if (!matches) {
-    console.error("Did not find lgtm in the comment:", comment.body.toLowerCase())
+    console.info("Did not find lgtm in the comment:", comment.body.toLowerCase())
     return
   }
 

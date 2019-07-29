@@ -23,7 +23,7 @@ const markAsMergeOnGreen = async (issueComment: IssueComment) => {
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
-    console.error("Not a Pull Request")
+    console.info("Not a Pull Request")
     return
   }
 
@@ -31,13 +31,13 @@ const markAsMergeOnGreen = async (issueComment: IssueComment) => {
   const keywords = ["merge on green", "merge on ci green", "pode dale", "pode dale on green"]
   const match = keywords.find(k => comment.body.toLowerCase().includes(k))
   if (!match) {
-    console.error("Did not find any of the phrases in the comment: ", comment.body.toLocaleLowerCase())
+    console.info("Did not find any of the phrases in the comment: ", comment.body.toLocaleLowerCase())
     return
   }
 
   // Check to see if the label has already been set
   if (issue.labels.find(l => l.name === "merge-on-green")) {
-    console.error("Already has merge-on-green")
+    console.info("Already has merge-on-green")
     return
   }
 
