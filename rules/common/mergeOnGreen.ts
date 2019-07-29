@@ -7,7 +7,7 @@ const mergeOnGreen = async (status: Status) => {
 
   if (status.state !== "success") {
     return console.info(
-      `Not a successful state (note that you can define state in the settings.json) - got ${status.state}`
+      `Not a successful state for merging (note that you can define state in the settings.json) - got ${status.state}`
     )
   }
 
