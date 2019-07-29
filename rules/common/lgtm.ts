@@ -10,7 +10,7 @@ const lgtm = async (issueComment: IssueComment) => {
 
   // Only look at PR issue comments, this isn't in the type system
   if (!(issue as any).pull_request) {
-    console.info("Not a Pull Request")
+    console.info("Not a Pull Request. Ignoring LGTM rule.")
     return
   }
 
