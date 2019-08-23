@@ -26,7 +26,7 @@ const mergeOnGreen = async () => {
 
   // See https://github.com/maintainers/early-access-feedback/issues/114 for more context on getting a PR from a SHA
   const repoString = danger.github.repository.full_name
-  const searchResponse = await api.search.issues({ q: `${ref} type:pr is:open repo:${repoString}` })
+  const searchResponse = await api.search.issuesAndPullRequests({ q: `${ref} type:pr is:open repo:${repoString}` })
 
   // https://developer.github.com/v3/search/#search-issues
   const prsWithCommit = searchResponse.data.items.map((i: any) => i.number) as number[]
