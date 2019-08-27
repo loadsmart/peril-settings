@@ -14,7 +14,7 @@ const deleteMergedPRBranch = async () => {
   try {
     console.info(`Deleting merged branch ${branch}`)
     const api = danger.github.api
-    await api.gitdata.deleteReference({ owner, repo, ref: `heads/${branch}` })
+    await api.git.deleteRef({ owner, repo, ref: `heads/${branch}` })
     console.info(`Branch ${branch} deleted`)
   } catch (error) {
     console.error(`Error deleting branch ${branch}`)
