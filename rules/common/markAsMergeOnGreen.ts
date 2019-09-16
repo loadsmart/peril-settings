@@ -48,12 +48,12 @@ const markAsMergeOnGreen = async (issueComment: IssueComment) => {
   // Create or re-use an existing label
   const owner = org
   const repo = issueComment.repository.name
-  const existingLabels = await api.issues.getLabels({ owner, repo })
+  const existingLabels = await api.issues.listLabelsForRepo({ owner, repo })
   const mergeOnGreen = existingLabels.data.find((l: Label) => l.name == "merge-on-green")
 
   // Create the label if it doesn't exist yet
   if (!mergeOnGreen) {
-    const newLabel = await api.issues.createLabel({
+    await api.issues.createLabel({
       owner,
       repo,
       name: "merge-on-green",
