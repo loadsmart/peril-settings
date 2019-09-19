@@ -6,6 +6,13 @@ const deleteMergedPRBranch = async () => {
   const repo = danger.github.thisPR.repo
   const branch = danger.github.pr.head.ref
 
+  const specialBranches = ["master", "develop", "production", "staging"]
+  const isSpecial = specialBranches.includes(branch)
+  if (isSpecial) {
+    console.info(`Bots should not delete special branch "${branch}"`)
+    return
+  }
+
   if (!danger.github.pr.merged) {
     console.info(`Branch ${branch} for PR #${danger.github.thisPR.number} is not merged yet.`)
     return
