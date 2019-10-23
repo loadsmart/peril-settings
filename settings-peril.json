@@ -6,7 +6,7 @@
   "rules": {
     "pull_request.opened": "rules/common/approveReleasePR.ts",
     "pull_request.closed": "rules/common/deleteMergedPRBranch.ts",
-    "issue_comment.created": "rules/common/markAsMergeOnGreen.ts",
+    "issue_comment.created": ["rules/common/markAsMergeOnGreen.ts", "rules/common/lgtm.ts"],
     "status.success": "rules/common/mergeOnGreen.ts",
     "pull_request_review.submitted": "rules/common/mergeOnGreen.ts",
     "check_suite.completed": "rules/common/mergeOnGreen.ts"
@@ -17,8 +17,7 @@
         "loadsmart/peril-settings@rules/common/changelog.ts",
         "loadsmart/peril-settings@rules/common/needsDescription.ts",
         "loadsmart/peril-settings@rules/common/testsUpdated.ts"
-      ],
-      "issue_comment.created": ["loadsmart/peril-settings@rules/common/lgtm.ts"]
+      ]
     }
   }
 }
