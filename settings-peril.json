@@ -6,7 +6,11 @@
   "rules": {
     "pull_request.opened": "rules/common/approveReleasePR.ts",
     "pull_request.closed": "rules/common/deleteMergedPRBranch.ts",
-    "issue_comment.created": ["rules/common/markAsMergeOnGreen.ts", "rules/common/lgtm.ts"],
+    "issue_comment.created": [
+        "rules/common/markAsMergeOnGreen.ts",
+        "rules/common/markAsAutomerge.ts",
+        "rules/common/lgtm.ts"
+    ],
     "status.success": "rules/common/mergeOnGreen.ts",
     "pull_request_review.submitted": "rules/common/mergeOnGreen.ts",
     "check_suite.completed": "rules/common/mergeOnGreen.ts"
