@@ -29,7 +29,7 @@ const markAsAutomerge = async (issueComment: IssueComment) => {
 
   // Don't do any work unless we have to
   const keywords = ["automerge", "soh dale", "ship it"]
-  const match = keywords.find(k => comment.body.toLowerCase().includes(k))
+  const match = keywords.find(k => comment.body.trim().toLowerCase() === k)
   if (!match) {
     console.info("Did not find any of the 'automerge' phrases in the comment: ", comment.body.toLocaleLowerCase())
     return
