@@ -26,7 +26,9 @@ it("warns when code was changed and there is no changelog entry", async () => {
     created_files: [],
   }
   await changelog()
-  expect(dm.warn).toHaveBeenCalledWith("It looks like code was changed without adding anything to the Changelog.")
+  expect(dm.warn).toHaveBeenCalledWith(`It looks like code was changed without adding anything to the Changelog.
+      If you are not sure whether this PR needs a changelog entry you may refer to this [confluence page](https://loadsmart.atlassian.net/wiki/spaces/engineering/pages/800030751/Changelog+entries#What-warrants-a-changelog-entry%3F)
+      `)
 })
 
 it("does not warn when repo has no changelog file", async () => {
