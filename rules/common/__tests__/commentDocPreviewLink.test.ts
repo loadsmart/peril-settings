@@ -10,7 +10,14 @@ beforeEach(() => {
 
 it("comment the doc preview link", () => {
   dm.danger = {
-    github: { repository: { name: "my_repo" }, pr: { head: { ref: "my_branch" } } },
+    github: {
+      pr: {
+        head: {
+          ref: "my_branch",
+        },
+      },
+      thisPR: { repo: "my_repo" },
+    },
   }
 
   commentDocPreviewLink()
