@@ -23,6 +23,9 @@
         "loadsmart/peril-settings@rules/common/needsDescription.ts",
         "loadsmart/peril-settings@rules/common/testsUpdated.ts"
       ]
+    },
+    "loadsmart/rfcs": {
+      "pull_request.opened": ["loadsmart/peril-settings@rules/common/commentDocPreviewLink.ts"]
     }
   }
 }
