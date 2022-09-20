@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: peril-settings
-  description: :wrench: Settings for Loadsmart's hosted Danger instance
+  description: Settings for Loadsmart's hosted Danger instance
   annotations:
     github.com/project-slug: loadsmart/peril-settings
   tags:
@@ -10,4 +10,4 @@ metadata:
 spec:
   type: other
   lifecycle: production
-  owner: platform
+  owner: developer-productivity
