@@ -22,7 +22,7 @@ it("warns when template code was created", async () => {
   }
   await notificationHubTemplate()
   expect(dm.warn).toHaveBeenCalledWith(
-    `It looks like code was changed within a template. If the template was for Notification Hub, make sure to update the template in the Admin after merging`
+    `It looks like code was changed within a template. If the template was for Notification Hub, make sure to persist the template change in the Notification Hub Admin after merging!`
   )
 })
 
@@ -39,7 +39,7 @@ it("warns when template code was changed", async () => {
   }
   await notificationHubTemplate()
   expect(dm.warn).toHaveBeenCalledWith(
-    `It looks like code was changed within a template. If the template was for Notification Hub, make sure to update the template in the Admin after merging`
+    `It looks like code was changed within a template. If the template was for Notification Hub, make sure to persist the template change in the Notification Hub Admin after merging!`
   )
 })
 
