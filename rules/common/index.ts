@@ -12,5 +12,5 @@ export default async () => {
   mergeCommits()
   await changelog()
   testsUpdated()
-  notificationHubTemplate()
+  await notificationHubTemplate()
 }

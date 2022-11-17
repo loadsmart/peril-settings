@@ -34,7 +34,7 @@ it("warns when template code was changed", async () => {
     },
   }
   dm.danger.git = {
-    modified_files: ["templates/invite_email.html"],
+    modified_files: ["rfp_backend/proposals/templates/emails/carrier_award.html"],
     created_files: ["src/new_file.py"],
   }
   await notificationHubTemplate()
