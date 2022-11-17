@@ -25,7 +25,7 @@
       ]
     },
     "loadsmart/rfp-backend": {
-      "pull_request.opened": ["rules/common/notificationHubTemplate.ts"]
+      "pull_request.opened": ["loadsmart/peril-settings@rules/common/notificationHubTemplate.ts"]
     }
   }
 }
