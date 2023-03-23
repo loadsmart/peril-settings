@@ -5,6 +5,7 @@ metadata:
   description: Settings for Loadsmart's hosted Danger instance
   annotations:
     github.com/project-slug: loadsmart/peril-settings
+    opslevel.com/tier: tier_3
   tags:
     - typescript
 spec:
