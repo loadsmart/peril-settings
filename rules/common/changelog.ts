@@ -16,7 +16,8 @@ const changelog = async () => {
 
   const hasChangelog = rootContents.data.find((file: any) => changelogs_re.test(file.name))
   const hasSemanticRelease =
-    rootContents.data.find((file: any) => semantic_release_re.test(file.name)) || packageJson.hasOwnProperty("release")
+    rootContents.data.find((file: any) => semantic_release_re.test(file.name)) ||
+    Object.prototype.hasOwnProperty.call(packageJson, "release")
 
   if (isOpen && hasChangelog && !hasSemanticRelease) {
     const files = [...danger.git.modified_files, ...danger.git.created_files]
