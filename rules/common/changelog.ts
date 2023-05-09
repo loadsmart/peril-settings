@@ -8,9 +8,11 @@ const changelog = async () => {
 
   const isOpen = pr.state === "open"
 
-  const packageJson = JSON.parse(await danger.github.utils.fileContents("package.json"))
   const getContentParams = { path: "", owner: pr.head.user.login, repo: pr.head.repo.name }
   const rootContents: any = await danger.github.api.repos.getContents(getContentParams)
+  const packageJson = rootContents.data.find((file: any) => file.name === "package.json")
+      ? JSON.parse(await danger.github.utils.fileContents("package.json"))
+      : {}
 
   const hasChangelog = rootContents.data.find((file: any) => changelogs_re.test(file.name))
   const hasSemanticRelease =
