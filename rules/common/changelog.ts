@@ -4,7 +4,7 @@ import { danger, warn } from "danger"
 const changelog = async () => {
   const pr = danger.github.pr
   const changelogs_re = /(CHANGELOG.md|changelog.md|CHANGELOG.yml|changelogs\/.*)/
-  const semantic_release_re = /(\.releaserc\.(yaml|yml|json|js|cjs)|release\.config\.(js|cjs))$/
+  const semantic_release_re = /^(\.releaserc\.(yaml|yml|json|js|cjs)|release\.config\.(js|cjs))$/
 
   const isOpen = pr.state === "open"
 
