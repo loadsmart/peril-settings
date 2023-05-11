@@ -4,6 +4,7 @@ import mergeCommits from "./mergeCommits"
 import changelog from "./changelog"
 import testsUpdated from "./testsUpdated"
 import notificationHubTemplate from "./notificationHubTemplate"
+import backstage from "./backstage"
 
 // Default run
 export default async () => {
@@ -13,4 +14,5 @@ export default async () => {
   await changelog()
   testsUpdated()
   await notificationHubTemplate()
+  await backstage()
 }
