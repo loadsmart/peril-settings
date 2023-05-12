@@ -1,9 +1,12 @@
 import { danger, fail } from "danger"
+import axios from "axios"
 import { validate } from "@roadiehq/roadie-backstage-entity-validator"
 
 const backstage = async () => {
   const pr = danger.github.pr
   const utils = danger.github.utils
+  const schemaPath = "./schemas/backstage.annotations.json"
+  const schemaURL = ""
 
   const isOpen = pr.state === "open"
 
@@ -16,12 +19,12 @@ const backstage = async () => {
 
   if (fileContent) {
     try {
-      await validate(fileContent, true, "./schemas/backstage.annotations.json")
+      await validate(fileContent, true, schemaPath)
     } catch (e) {
       fail(`The 'catalog-info.yaml' file is not valid for Backstage. Error details:\n\n\`\`\`\n${e}\n\`\`\``)
     }
   } else {
-    fail(`The '${filePath}' file doesn't exist in the pull request.`)
+    fail(`'${filePath}' file doesn't exist.`)
   }
 }
 
