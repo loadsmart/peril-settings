@@ -62,6 +62,8 @@
     ]
   },
   "dependencies": {
-    "@roadiehq/roadie-backstage-entity-validator": "^2.3.0"
+    "@roadiehq/roadie-backstage-entity-validator": "^2.3.0",
+    "axios": "^1.4.0",
+    "js-yaml": "^4.1.0"
   }
 }
