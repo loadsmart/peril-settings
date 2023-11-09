@@ -1,6 +1,6 @@
 {
   "settings": {
-    "ignored_repos": ["loadsmart/peril-hack"],
+    "ignored_repos": ["loadsmart/peril-hack", "loadsmart/navtrac-cv-2"],
     "onlyForOrgMembers": true
   },
   "rules": {
